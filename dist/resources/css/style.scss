@@ -1,0 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+$bgColor: #f4b350;
+
+html {
+    background-color: $bgColor;
+    color: black;
+    font-size: 20px;
+    font-weight: 300;
+    font-family: 'Quicksand',Arial, Helvetica, sans-serif;
+}
