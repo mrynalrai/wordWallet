@@ -32,6 +32,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
-    "babel-polyfill": "^6.26.0"
+    "babel-polyfill": "^6.26.0",
+    "uniqid": "^5.2.0"
   }
 }

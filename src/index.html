@@ -6,11 +6,57 @@
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,300&display=swap" rel="stylesheet">
         <!-- Links to Google Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Quicksand|Raleway&display=swap" rel="stylesheet" />
+        <title>WordWallet</title>
     </head>
     <body>
-        <h1> Hello</h1>
+        <section class="form">
+            <div class="form__header">
+                <img class="logo" src="../resources/img/DP_With_Leo_Selfie_Cartoon_filter.jpg" alt="logo">
+                <h2 class="form__header--title">Mrinal Rai</h2>
+            </div>
+            <div class="seperator"></div>
+            <div class="form__input">
+                <!-- <h1 class="form__input--title">WordWallet</h1> -->
+                <form class="form__input--container">
+                    <label for="name">enter word*</label>
+                    <input type="text" autocomplete="off" id="formWord" placeholder="New word" required>
+                    <label for="name">enter meaning*</label>
+                    <input type="text" autocomplete="off" id="formMeaning" placeholder="Corresponding meaning" required>
+                    <label for="name">enter sample</label>
+                    <input type="text" autocomplete="off" id="formSample" placeholder="Sentence containing the word">
+                    <label for="name">enter details</label>
+                    <input type="text" autocomplete="off" id="formDetails" placeholder="Root word and further derivation">
+                    <input type="submit" value="SAVE IT"></input>
+                </form>
+            </div>
+        </section>
+        <section class="list">
+            <div class="list__header">
+                <h1 class="list__header--title">Word List</h1>
+                <form class="list__header--search">
+                    <input type="search" placeholder="Search">
+                    <ion-icon class="list__header--search--icon" name="search"></ion-icon>
+                </form>
+            </div>
+            <div class="list__words">
+                <ul class="list__words--results">
+                    <!-- <li id="#23456">
+                        <a class="item" href="#23456">
+                            <div>
+                                <h2>Churlish <ion-icon class="delete" name="close"></ion-icon> </h2>
+                                <p>rude in a mean-spirited and surly way</p>
+                                <p>It seems churlish to complain</p>
+                                <p>cierlisc</p>
+                            </div>
+                        </a>
+                    </li> -->
+                </ul>
+            </div>
+        </section>
+
 
         <!-- Links to Font Awesome -->
+        <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
         <script src="https://kit.fontawesome.com/ef5186996b.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
