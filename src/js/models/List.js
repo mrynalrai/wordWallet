@@ -7,7 +7,9 @@ export default class List{
     getWordList() {
         return this.words;
     }
-
+    getWord(query) {
+        return this.words.find(word => word.word == query);
+    }
     addWord(word) {
         let newWord = {
             id: uniqid()
