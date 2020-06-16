@@ -83,6 +83,7 @@ elements.wordContainer.addEventListener('click', ctrlDeleteWord);
 elements.searchButton.addEventListener('click', ctrlSearch);
 elements.searchQuery.addEventListener('keypress', e => {
     if (event.keyCode === 13 || e.which === 13) {
+        e.preventDefault();
         ctrlSearch();
     }
 })
@@ -108,3 +109,15 @@ function ctrlSearch() {
         listView.renderResults(state.list.getWordList());
     }
 }
+
+// Restore word list on page load
+window.addEventListener('load', () => {
+    state.list = new List();
+    
+    // Restore likes
+    state.list.readStorage();
+
+    // Render the existing words
+    listView.renderResults(state.list.getWordList());
+    searching(state.list.getWordList());
+});
