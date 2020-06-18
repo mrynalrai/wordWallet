@@ -120,4 +120,17 @@ window.addEventListener('load', () => {
     // Render the existing words
     listView.renderResults(state.list.getWordList());
     searching(state.list.getWordList());
+
+    elements.navHome.classList.add('active');
+    elements.navList.classList.remove('active');
 });
+
+elements.navList.addEventListener('click', e => {
+    elements.navList.classList.add('active');
+    elements.navHome.classList.remove('active');
+})
+
+elements.navHome.addEventListener('click', e => {
+    elements.navList.classList.remove('active');
+    elements.navHome.classList.add('active');
+})

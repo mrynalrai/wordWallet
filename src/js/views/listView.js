@@ -14,7 +14,8 @@ const renderWord = word => {
         markup = 
         `
         <li id="${word.id}">
-            <a class="item" href="#${word.id}">
+            <!-- <a class="item" href="#${word.id}"> -->
+            <a class="item">
                 <div>
                     <h2>${word.word} <ion-icon class="delete" name="close"></ion-icon> </h2>
                     <p>${word.meaning}</p>

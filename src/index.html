@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <link rel="stylesheet" href="vendors/css/normalize.css">
         <!-- <link rel="stylesheet" href="resources/css/style.css"> -->
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,300&display=swap" rel="stylesheet">
@@ -9,9 +10,10 @@
         <title>WordWallet</title>
     </head>
     <body>
-        <section class="form">
+        <section id="form" class="form">
             <div class="form__header">
-                <img class="logo" src="../resources/img/DP_With_Leo_Selfie_Cartoon_filter.jpg" alt="logo">
+                <!-- <img class="logo" src="../resources/img/DP_With_Leo_Selfie_Cartoon_filter.jpg" alt="logo"> -->
+                <ion-icon class='user-icon' name="person-circle"></ion-icon>
                 <h2 class="form__header--title">Mrinal Rai</h2>
             </div>
             <div class="seperator"></div>
@@ -30,7 +32,7 @@
                 </form>
             </div>
         </section>
-        <section class="list">
+        <section id="wordList" class="list">
             <div class="list__header">
                 <h1 class="list__header--title">Word List</h1>
                 <form class="list__header--search">
@@ -54,7 +56,10 @@
                 </ul>
             </div>
         </section>
-
+        <div class="nav">
+            <a href="#form"><ion-icon id='home' name="home"></ion-icon></a>
+            <a href="#wordList"><ion-icon id='list' name="list"></ion-icon></a>
+        </div>
 
         <!-- Links to Font Awesome -->
         <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
