@@ -27,6 +27,7 @@ html {
         background-color: $mainBGcolor;
         margin: 7.5vh 10vw;
         display: flex;
+        flex: 1;
         border-radius: 25px;
             
         h2 {
@@ -55,6 +56,8 @@ html {
         .form {
             width: 40%;
             border-radius: 25px 0 0 25px;
+            display: flex;
+            flex-direction: column;
             .form__header {
                 padding: 20px;
                 display: flex;
@@ -83,10 +86,16 @@ html {
                 width: 95%;
                 margin: 0 auto;
             }
+            .form__input::-webkit-scrollbar {
+                display: none;
+            }
             .form__input {
                 display: flex;
                 flex-direction: column;
                 padding: 20px;
+                overflow: auto;
+                overflow: -moz-scrollbars-none;
+                -ms-overflow-style: none;
                 &--title {
                     margin-left: 20px;
                     padding: 15px 15px 15px 25px;
