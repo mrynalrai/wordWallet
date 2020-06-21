@@ -13,8 +13,8 @@ const renderWord = word => {
     if (word.sample !== '') {
         markup = 
         `
-        <li id="${word.id}">
-            <!-- <a class="item" href="#${word.id}"> -->
+        <li id="${word._id}">
+            <!-- <a class="item" href="#${word._id}"> -->
             <a class="item">
                 <div>
                     <h2>${word.word} <ion-icon class="delete" name="close"></ion-icon> </h2>
@@ -28,8 +28,8 @@ const renderWord = word => {
     } else {
         markup = 
         `
-        <li id="${word.id}">
-            <a class="item" href="#${word.id}">
+        <li id="${word._id}">
+            <a class="item" href="#${word._id}">
                 <div>
                     <h2>${word.word} <ion-icon class="delete" name="close"></ion-icon> </h2>
                     <p>${word.meaning}</p>

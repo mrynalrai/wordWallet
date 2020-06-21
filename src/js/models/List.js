@@ -1,41 +1,104 @@
 import uniqid from 'uniqid';
+import axios from 'axios';
 
 export default class List{
     constructor() {
         this.words = [];
     }
-    getWordList() {
-        return this.words;
-    }
-    getWord(query) {
-        return this.words.find(word => word.word.toLowerCase() == query.toLowerCase());
-    }
-    addWord(word) {
-        let newWord = {
-            id: uniqid()
+    async getWordList() {
+        try {
+            const res = await axios({
+                method: 'GET',
+                url: 'https://wordwallet.herokuapp.com/api/v1/words'
+            });
+            // if ((res.data.status = 'success')) location.reload(true);
+            this.words = res.data.data.words;
+            return this.words;
+        } catch (err) {
+            alert('error', 'Error fetching data! Try again.');
         }
-        newWord = Object.assign(word, {id:uniqid()});
-        this.words.push(newWord);
-        this.persistData();
-        return word;
     }
-
-    deleteWord(id) {
-        const index = this.words.findIndex(el => el.id === id);
-        // // [2,4,8] splice(1, 2) -> returns [4, 8], original array is [2]
-        // // [2,4,8] slice(1, 2) -> returns 4, original array is [2,4,8]
-        this.words.splice(index, 1);
-        this.persistData();
+    async getWord(query) {
+        // return this.words.find(word => word.word.toLowerCase() == query.toLowerCase());
+        let word = this.words.find(word => word.word.toLowerCase() == query.toLowerCase());
+        if(!word) return;
+        try {
+            const res = await axios({
+                method: 'GET',
+                url: `https://wordwallet.herokuapp.com/api/v1/words/${word._id}`
+            });
+            // if ((res.data.status = 'success')) location.reload(true);
+            return res.data.data.word;
+        } catch (err) {
+            alert('error', 'Error fetching data! Try again.');
+        }
     }
+    async addWord(word) {
+        // console.log(word);
+        // let newWord = {
+        //     id: uniqid()
+        // }
+        // newWord = Object.assign(word, {id:uniqid()});
+        // this.words.push(newWord);
+        // this.persistData();
+        // return word;
 
-    persistData() {
-        localStorage.setItem('words', JSON.stringify(this.words));
-    }
-
-    readStorage() {
-        const storage = JSON.parse(localStorage.getItem('words'));
+        try {
+            const res = await axios({
+              method: 'POST',
+              url: 'https://wordwallet.herokuapp.com/api/v1/words',
+              data: {
+                word: word.word,
+                meaning: word.meaning,
+                sample: word.sample,
+                details: word.details
+              }
+            });
         
-        // Restoring likes from the localStorage
-        if (storage) this.words = storage;
+            if (res.data.status === 'success') {
+              alert('success', 'Word added scuccessfully');
+              return word;
+            //   window.setTimeout(() => {
+            //     location.assign('/');
+            //   }, 1500);
+            }
+          } catch (err) {
+            alert('error', err.response.data.message);
+          }
     }
+
+    async deleteWord(id) {
+        // const index = this.words.findIndex(el => el.id === id);
+        // // // [2,4,8] splice(1, 2) -> returns [4, 8], original array is [2]
+        // // // [2,4,8] slice(1, 2) -> returns 4, original array is [2,4,8]
+        // this.words.splice(index, 1);
+        // this.persistData();
+
+        try {
+            const res = await axios({
+              method: 'DELETE',
+              url: `https://wordwallet.herokuapp.com/api/v1/words/${id}`
+            });
+        
+            if (res.data.status === 'success') {
+              alert('success', 'Word deleted scuccessfully');
+            //   window.setTimeout(() => {
+            //     location.assign('/');
+            //   }, 1500);
+            }
+          } catch (err) {
+            alert('error', err.response.data.message);
+          }
+    }
+
+    // persistData() {
+    //     localStorage.setItem('words', JSON.stringify(this.words));
+    // }
+
+    // async readStorage() {
+    //     // const storage = JSON.parse(localStorage.getItem('words'));
+        
+    //     // Restoring likes from the localStorage
+    //     // if (storage) this.words = storage;
+    // }
 }

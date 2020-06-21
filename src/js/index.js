@@ -43,41 +43,44 @@ function controlForm() {
     //try {
         // 4) Search for recipes
         //await state.search.getResults();
-        controlList();
-
-        // 5) Render results on UI
-        //clearLoader();
-        listView.renderResults(state.list.getWordList());
-        searching(state.list.getWordList());
+        addNewWord();     
     //} catch (err) {
         //alert('Something wrong with the search...');
         //clearLoader();
     //}
 }
 
-function controlList() {
+async function addNewWord() {
     //create a new list if there isn't one
     if (!state.list) state.list = new List();
     //Add new word to the list
-    state.list.addWord(state.form);
+    await state.list.addWord(state.form);
     //Add to UI
+    // 5) Render results on UI
+        //clearLoader();
+    let list = await state.list.getWordList();
+    listView.renderResults(list);
+    searching(list);
 }
 
 let ctrlDeleteWord = event => {
     let word = event.target.parentNode.parentNode.parentNode.parentNode;
     if (word.id) {
-        // Delete the item from the Data structure
-        state.list.deleteWord(word.id);
-        // Delete the item from the UI
-        listView.deleteWord(word);
-        searching(state.list.getWordList());
-        // Update and show the new list
-        listView.clearResults();
-        listView.renderResults(state.list.getWordList());
-        searching(state.list.getWordList());
+        deleteWord(word);
     }
 }
 
+async function deleteWord(word) {
+    // Delete the item from the Data structure
+    await state.list.deleteWord(word.id);
+    // Delete the item from the UI
+    listView.deleteWord(word);
+    let list = await state.list.getWordList();
+    // Update and show the new list
+    listView.clearResults();
+    listView.renderResults(list);
+    searching(list);
+}
 elements.wordContainer.addEventListener('click', ctrlDeleteWord);
 
 elements.searchButton.addEventListener('click', ctrlSearch);
@@ -93,9 +96,13 @@ function ctrlSearch() {
     // 1) Get data from input
     const query = searchView.getInput();
     // 2) Get word from input query and add it to state
-    if (query) {
+    searchWord(query);
+}
+
+async function searchWord(query) {
+    if (query) {    
         state.search = new Search(query);
-        state.searchReults = state.list.getWord(query);
+        state.searchReults = await state.list.getWord(query);
         // 3) Render UI for results
         if (state.searchReults) {
             listView.clearResults();
@@ -106,24 +113,28 @@ function ctrlSearch() {
         }
     } else {
         listView.clearResults();
-        listView.renderResults(state.list.getWordList());
+        let list = await state.list.getWordList();
+        listView.renderResults(list);
     }
 }
-
 // Restore word list on page load
 window.addEventListener('load', () => {
     state.list = new List();
     
-    // Restore likes
-    state.list.readStorage();
-
-    // Render the existing words
-    listView.renderResults(state.list.getWordList());
-    searching(state.list.getWordList());
+    renderWordList();
 
     elements.navHome.classList.add('active');
     elements.navList.classList.remove('active');
 });
+
+async function renderWordList() {
+    // Restore likes
+    let list = await state.list.getWordList();
+
+    // Render the existing words
+    listView.renderResults(list);
+    searching(list);
+}
 
 elements.navList.addEventListener('click', e => {
     elements.navList.classList.add('active');
