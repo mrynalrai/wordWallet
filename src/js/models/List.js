@@ -13,6 +13,28 @@ export default class List{
             });
             // if ((res.data.status = 'success')) location.reload(true);
             this.words = res.data.data.words;
+            let x = this.words.map(word => {
+              word.num = Math.random();
+              return word;
+            });
+
+            function compare(a, b) {
+              // Use toUpperCase() to ignore character casing
+              const bandA = a.num;
+              const bandB = b.num;
+            
+              let comparison = 0;
+              if (bandA > bandB) {
+                comparison = 1;
+              } else if (bandA < bandB) {
+                comparison = -1;
+              }
+              return comparison;
+            }
+            
+            x.sort(compare);
+            this.words = x;
+
             return this.words;
         } catch (err) {
             alert('error', 'Error fetching data! Try again.');
