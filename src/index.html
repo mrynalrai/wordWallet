@@ -9,6 +9,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,300&display=swap" rel="stylesheet">
         <!-- Links to Google Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Quicksand|Raleway&display=swap" rel="stylesheet" />
+        <link rel="manifest" href="manifest.json">
         <title>WordWallet</title>
     </head>
     <body>
@@ -64,6 +65,12 @@
         </div>
 
         <!-- Links to Font Awesome -->
+        <script>
+            // Check that service workers are supported
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('/service-worker.js');
+            }
+            </script>
         <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
         <script src="https://kit.fontawesome.com/ef5186996b.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
