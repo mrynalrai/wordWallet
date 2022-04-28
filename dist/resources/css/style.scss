@@ -272,22 +272,22 @@ html {
         margin: 7.5vh 5vw;
     }
 }
+// @media only screen and (max-width: 900px) {
+//     html {
+//         body {
+//             flex-direction: column;
+//             .form {
+//                 width: 100%;
+//             }
+//             .list {
+//                 width: 100%;
+//                 border-radius: 25px;
+//                 margin-bottom: 20px;
+//             }
+//         }
+//     }
+// }
 @media only screen and (max-width: 900px) {
-    html {
-        body {
-            flex-direction: column;
-            .form {
-                width: 100%;
-            }
-            .list {
-                width: 100%;
-                border-radius: 25px;
-                margin-bottom: 20px;
-            }
-        }
-    }
-}
-@media only screen and (max-width: 640px) {
     html {
         body {
         width: 100%;
@@ -296,7 +296,9 @@ html {
         padding: 0;
         border-radius: 0;
         overflow: hidden;
+        flex-direction: column;
             .form {
+                width: 100%;
                 height: 90vh;
                 display: none;
                 flex-direction: column;
@@ -322,10 +324,13 @@ html {
             }
             .list {
                 display: none;
-                width: auto;
+                width: 100%;
+                border-radius: 25px;
+                margin-bottom: 20px;
                 height: 90vh;
                 border-radius: 0;
                 margin-bottom: 10vh;
+                overflow: auto;
                 &__header {
                     display: block;
                     margin: 30px 10px 0 10px;
@@ -378,8 +383,8 @@ html {
                 border-radius: 0%;
                 margin: 10px 15px;
                 background: $listBGcolor;
-                box-shadow:  7px 7px 14px #16181b, 
-                            7px 7px 14px #2c3237;
+                // box-shadow:  7px 7px 14px #16181b, 
+                //             7px 7px 14px #2c3237;
             }
         }
     }
