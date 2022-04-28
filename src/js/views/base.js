@@ -8,5 +8,9 @@ export const elements = {
     searchButton: document.querySelector('.list__header--search--icon'),
     searchForm: document.querySelector('.list__header--search'),
     navHome: document.querySelector('#home'),
-    navList: document.querySelector('#list')
+    navList: document.querySelector('#list'),
+    navHomeButton: document.querySelector('#home_button'),
+    navListButton: document.querySelector('#list_button'),
+    firstTab: document.querySelector('#form'),
+    secondTab: document.querySelector('#wordList'),
 };

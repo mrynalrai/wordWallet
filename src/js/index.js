@@ -125,6 +125,7 @@ window.addEventListener('load', () => {
 
     elements.navHome.classList.add('active');
     elements.navList.classList.remove('active');
+    elements.firstTab.style.display = "flex";
 });
 
 async function renderWordList() {
@@ -136,12 +137,39 @@ async function renderWordList() {
     searching(list);
 }
 
-elements.navList.addEventListener('click', e => {
-    elements.navList.classList.add('active');
-    elements.navHome.classList.remove('active');
-})
+// elements.navListButton.addEventListener('click', e => {
+//     elements.navList.classList.add('active');
+//     elements.navHome.classList.remove('active');
+// })
 
-elements.navHome.addEventListener('click', e => {
-    elements.navList.classList.remove('active');
-    elements.navHome.classList.add('active');
-})
+// elements.navHomeButton.addEventListener('click', e => {
+//     elements.navList.classList.remove('active');
+//     elements.navHome.classList.add('active');
+// })
+
+function setupTabs() {
+  document.querySelectorAll(".tab__button").forEach((button) => {
+    button.addEventListener("click", () => {
+      const tabNumber = button.dataset.forTab;
+      const tabActivate = document.querySelector(
+        `.tab-content[data-tab="${tabNumber}"]`
+      );
+      elements.navHome.classList.remove('active');
+      elements.navList.classList.remove('active');
+      elements.firstTab.style.display = "none";
+      elements.secondTab.style.display = "none";
+      if (tabActivate.id == 'wordList') {
+        elements.navList.classList.add('active');
+        elements.secondTab.style.display = "block";
+      } 
+      else if (tabActivate.id == 'form') {
+        elements.navHome.classList.add('active');
+        elements.firstTab.style.display = "flex";
+      }
+    });
+  });
+}
+  
+  document.addEventListener('DOMContentLoaded',()=>{
+    setupTabs();
+  })

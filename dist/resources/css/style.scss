@@ -298,7 +298,7 @@ html {
         overflow: hidden;
             .form {
                 height: 90vh;
-                display: flex;
+                display: none;
                 flex-direction: column;
                 // justify-content: space-evenly;
                 .form__input {
@@ -321,6 +321,7 @@ html {
                 }
             }
             .list {
+                display: none;
                 width: auto;
                 height: 90vh;
                 border-radius: 0;
@@ -363,7 +364,7 @@ html {
         bottom: 0;
         background-color: $navBGcolor;
         justify-content: space-evenly;
-            a {
+            .tab__button {
                 width: auto;
                 flex: 1;
                 display: flex;
@@ -371,10 +372,18 @@ html {
                 align-items: center;
                 text-decoration: none;
                 color: white;
+                background-color: transparent;
+                border: none;
+                background-color: $listBGcolor;
+                border-radius: 0%;
+                margin: 10px 15px;
+                background: $listBGcolor;
+                box-shadow:  7px 7px 14px #16181b, 
+                            7px 7px 14px #2c3237;
             }
         }
     }
 }
 .active {
-    color: #d456fa;
+    color: #d456fa !important;
 }
