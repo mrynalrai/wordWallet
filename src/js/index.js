@@ -132,6 +132,8 @@ window.addEventListener('load', () => {
     renderWordList();
 
     elements.navHome.classList.add('active');
+    elements.navHomeButton.classList.add('clicked');
+    elements.navListButton.classList.remove('clicked');
     elements.navList.classList.remove('active');
     elements.firstTab.style.display = "flex";
 });
