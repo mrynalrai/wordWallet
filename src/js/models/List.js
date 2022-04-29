@@ -42,15 +42,15 @@ export default class List{
     }
     async getWord(query) {
         // return this.words.find(word => word.word.toLowerCase() == query.toLowerCase());
-        let word = this.words.find(word => word.word.toLowerCase() == query.toLowerCase());
-        if(!word) return;
+        // let word = this.words.find(word => word.word.toLowerCase() == query.toLowerCase());
+        // if(!word) return;
         try {
             const res = await axios({
                 method: 'GET',
-                url: `https://wordwallet.herokuapp.com/api/v1/words/${word._id}`
+                url: `https://wordwallet.herokuapp.com/api/v1/words/${query}`
             });
             // if ((res.data.status = 'success')) location.reload(true);
-            return res.data.data.word;
+            return res.data.data.docs;
         } catch (err) {
             alert('error', 'Error fetching data! Try again.');
         }
