@@ -106,8 +106,8 @@ function ctrlSearch() {
 }
 
 async function searchWord(query) {
+    listView.renderSpinner();
     if (query) {
-        listView.renderSpinner();
         state.search = new Search(query);
         state.searchReults = await state.list.getWord(query);
         // 3) Render UI for results
@@ -119,8 +119,8 @@ async function searchWord(query) {
             listView.renderNolistMsg();
         }
     } else {
-        listView.clearResults();
         let list = await state.list.getWordList();
+        listView.clearResults();
         listView.renderResults(list);
     }
 }
