@@ -9,7 +9,7 @@ export default class List{
         try {
             const res = await axios({
                 method: 'GET',
-                url: 'https://wordwallet.herokuapp.com/api/v1/words'
+                url: 'https://wordwallet.herokuapp.com/api/v1/words-public'
             });
             // if ((res.data.status = 'success')) location.reload(true);
             this.words = res.data.data.words;
@@ -47,7 +47,7 @@ export default class List{
         try {
             const res = await axios({
                 method: 'GET',
-                url: `https://wordwallet.herokuapp.com/api/v1/words/${word._id}`
+                url: `https://wordwallet.herokuapp.com/api/v1/words-public/${word._id}`
             });
             // if ((res.data.status = 'success')) location.reload(true);
             return res.data.data.word;
@@ -68,7 +68,7 @@ export default class List{
         try {
             const res = await axios({
               method: 'POST',
-              url: 'https://wordwallet.herokuapp.com/api/v1/words',
+              url: 'https://wordwallet.herokuapp.com/api/v1/words-public',
               data: {
                 word: word.word,
                 meaning: word.meaning,
@@ -99,7 +99,7 @@ export default class List{
         try {
             const res = await axios({
               method: 'DELETE',
-              url: `https://wordwallet.herokuapp.com/api/v1/words/${id}`
+              url: `https://wordwallet.herokuapp.com/api/v1/words-public/${id}`
             });
         
             if (res.data.status === 'success') {
