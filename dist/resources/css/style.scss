@@ -124,6 +124,9 @@ html {
                         background: #272b2f;
                         box-shadow: inset 5px 5px 10px #15181a, 
                                     inset -5px -5px 10px #393e44;
+                        -webkit-appearance: none;
+                        -webkit-box-shadow: inset 5px 5px 10px #15181a, 
+                        inset -5px -5px 10px #393e44;
                     }
                     input[type=submit] {
                         justify-self: center;
@@ -311,6 +314,9 @@ html {
                             background: #272b2f;
                             box-shadow: inset 5px 5px 10px #15181a, 
                                         inset -5px -5px 10px #393e44;
+                            -webkit-appearance: none;
+                            -webkit-box-shadow: inset 5px 5px 10px #15181a, 
+                            inset -5px -5px 10px #393e44;
                         }
                     }
                 }
