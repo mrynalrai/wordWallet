@@ -9,7 +9,7 @@ export default class List{
         try {
             const res = await axios({
                 method: 'GET',
-                url: 'https://wordwallet.herokuapp.com/api/v1/words-public'
+                url: 'https://wordwallet.herokuapp.com/api/v1/words'
             });
             // if ((res.data.status = 'success')) location.reload(true);
             this.words = res.data.data.words;
@@ -42,15 +42,15 @@ export default class List{
     }
     async getWord(query) {
         // return this.words.find(word => word.word.toLowerCase() == query.toLowerCase());
-        let word = this.words.find(word => word.word.toLowerCase() == query.toLowerCase());
-        if(!word) return;
+        // let word = this.words.find(word => word.word.toLowerCase() == query.toLowerCase());
+        // if(!word) return;
         try {
             const res = await axios({
                 method: 'GET',
-                url: `https://wordwallet.herokuapp.com/api/v1/words-public/${word._id}`
+                url: `https://wordwallet.herokuapp.com/api/v1/words/${query}`
             });
             // if ((res.data.status = 'success')) location.reload(true);
-            return res.data.data.word;
+            return res.data.data.docs;
         } catch (err) {
             alert('error', 'Error fetching data! Try again.');
         }
@@ -68,7 +68,7 @@ export default class List{
         try {
             const res = await axios({
               method: 'POST',
-              url: 'https://wordwallet.herokuapp.com/api/v1/words-public',
+              url: 'https://wordwallet.herokuapp.com/api/v1/words',
               data: {
                 word: word.word,
                 meaning: word.meaning,
@@ -99,7 +99,7 @@ export default class List{
         try {
             const res = await axios({
               method: 'DELETE',
-              url: `https://wordwallet.herokuapp.com/api/v1/words-public/${id}`
+              url: `https://wordwallet.herokuapp.com/api/v1/words/${id}`
             });
         
             if (res.data.status === 'success') {
