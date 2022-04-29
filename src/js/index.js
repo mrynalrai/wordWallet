@@ -165,7 +165,7 @@ function setupTabs() {
       if (tabActivate.id == 'wordList') {
         elements.navList.classList.add('active');
         elements.navListButton.classList.add('clicked');
-        elements.secondTab.style.display = "block";
+        elements.secondTab.style.display = "flex";
       } 
       else if (tabActivate.id == 'form') {
         elements.navHome.classList.add('active');
