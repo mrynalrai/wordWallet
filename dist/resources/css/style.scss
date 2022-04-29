@@ -259,6 +259,13 @@ html {
                     width: 80%;
                     margin: 0 auto;
                 }
+                &--results:after {
+                    display: block;
+                    height: 1px;
+                    content: "";
+                    width: 80%;
+                    margin: 0 auto 20px auto;
+                }
             }
         }
     }
