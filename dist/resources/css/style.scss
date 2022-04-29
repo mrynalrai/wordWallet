@@ -314,6 +314,10 @@ html {
                         }
                     }
                 }
+                &__header {
+                    background: linear-gradient(180deg, #2a2e32, #23272a);
+                    box-shadow: 0px 10px 16px #15181a;                
+                }
             }
             .list {
                 display: none;
@@ -376,6 +380,7 @@ html {
                 border-radius: 0%;
                 margin: 10px 15px;
                 background: $listBGcolor;
+                box-shadow: 0px 10px 16px #15181a;
                 // box-shadow:  7px 7px 14px #16181b, 
                 //             7px 7px 14px #2c3237;
             }
