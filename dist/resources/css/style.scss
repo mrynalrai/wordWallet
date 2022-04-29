@@ -380,9 +380,7 @@ html {
                 border-radius: 0%;
                 margin: 10px 15px;
                 background: $listBGcolor;
-                box-shadow: 0px 10px 16px #15181a;
-                // box-shadow:  7px 7px 14px #16181b, 
-                //             7px 7px 14px #2c3237;
+                box-shadow: 0px 10px 16px #15181a; 
             }
         }
     }
@@ -391,7 +389,9 @@ html {
 .active {
     color: #d456fa !important;
 }
-
+.clicked {
+    background: linear-gradient(180deg, #1e2125, #23282c, #1e2125) !important;
+}
 .spinner__container {
     margin-top: 24px;
     display: flex;

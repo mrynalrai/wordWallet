@@ -155,14 +155,18 @@ function setupTabs() {
       );
       elements.navHome.classList.remove('active');
       elements.navList.classList.remove('active');
+      elements.navHomeButton.classList.remove('clicked');
+      elements.navListButton.classList.remove('clicked');
       elements.firstTab.style.display = "none";
       elements.secondTab.style.display = "none";
       if (tabActivate.id == 'wordList') {
         elements.navList.classList.add('active');
+        elements.navListButton.classList.add('clicked');
         elements.secondTab.style.display = "block";
       } 
       else if (tabActivate.id == 'form') {
         elements.navHome.classList.add('active');
+        elements.navHomeButton.classList.add('clicked');
         elements.firstTab.style.display = "flex";
       }
     });
