@@ -13,4 +13,5 @@ export const elements = {
     navListButton: document.querySelector('#list_button'),
     firstTab: document.querySelector('#form'),
     secondTab: document.querySelector('#wordList'),
+    saveBtn: document.querySelector('#saveBtn')
 };

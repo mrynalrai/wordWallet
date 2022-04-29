@@ -51,6 +51,8 @@ function controlForm() {
 }
 
 async function addNewWord() {
+    elements.saveBtn.value = "SAVING..."
+    listView.renderSpinner();
     //create a new list if there isn't one
     if (!state.list) state.list = new List();
     //Add new word to the list
@@ -59,6 +61,8 @@ async function addNewWord() {
     // 5) Render results on UI
         //clearLoader();
     let list = await state.list.getWordList();
+    elements.saveBtn.value = "SAVE IT"
+    listView.clearSpinner();
     listView.renderResults(list);
     searching(list);
 }
@@ -71,11 +75,13 @@ let ctrlDeleteWord = event => {
 }
 
 async function deleteWord(word) {
+    listView.renderSpinner()
     // Delete the item from the Data structure
     await state.list.deleteWord(word.id);
     // Delete the item from the UI
     listView.deleteWord(word);
     let list = await state.list.getWordList();
+    listView.clearSpinner();
     // Update and show the new list
     listView.clearResults();
     listView.renderResults(list);
@@ -90,7 +96,7 @@ elements.searchQuery.addEventListener('keypress', e => {
         ctrlSearch();
     }
 })
-elements.searchQuery.addEventListener('blur', ctrlSearch);
+// elements.searchQuery.addEventListener('blur', ctrlSearch);
 
 function ctrlSearch() {
     // 1) Get data from input
@@ -100,7 +106,8 @@ function ctrlSearch() {
 }
 
 async function searchWord(query) {
-    if (query) {    
+    if (query) {
+        listView.renderSpinner();
         state.search = new Search(query);
         state.searchReults = await state.list.getWord(query);
         // 3) Render UI for results
@@ -117,6 +124,7 @@ async function searchWord(query) {
         listView.renderResults(list);
     }
 }
+
 // Restore word list on page load
 window.addEventListener('load', () => {
     state.list = new List();
@@ -129,23 +137,14 @@ window.addEventListener('load', () => {
 });
 
 async function renderWordList() {
+    listView.renderSpinner();
     // Restore likes
     let list = await state.list.getWordList();
-
+    listView.clearSpinner();
     // Render the existing words
     listView.renderResults(list);
     searching(list);
 }
-
-// elements.navListButton.addEventListener('click', e => {
-//     elements.navList.classList.add('active');
-//     elements.navHome.classList.remove('active');
-// })
-
-// elements.navHomeButton.addEventListener('click', e => {
-//     elements.navList.classList.remove('active');
-//     elements.navHome.classList.add('active');
-// })
 
 function setupTabs() {
   document.querySelectorAll(".tab__button").forEach((button) => {

@@ -8,6 +8,20 @@ export const renderResults = (words) => {
     words.forEach(renderWord);
 };
 
+export const renderSpinner = () => {
+    const markup = `
+    <div class="spinner__container">
+        <div class="spinner">
+        </div>
+    </div>
+    `;
+    elements.wordList.insertAdjacentHTML('afterbegin', markup);
+}
+
+export const clearSpinner = () => {
+    elements.wordList.innerHTML = '';
+}
+
 const renderWord = word => {
     let markup;
     if (word.sample !== '') {
