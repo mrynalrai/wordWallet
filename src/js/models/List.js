@@ -1,5 +1,6 @@
 import uniqid from 'uniqid';
 import axios from 'axios';
+import { renderSnackbar } from '../uiComponents/Snackbar';
 
 export default class List{
     constructor() {
@@ -37,7 +38,7 @@ export default class List{
 
             return this.words;
         } catch (err) {
-            alert('error', 'Error fetching data! Try again.');
+          renderSnackbar('Error fetching data! Try again.');
         }
     }
     async getWord(query) {
@@ -52,7 +53,7 @@ export default class List{
             // if ((res.data.status = 'success')) location.reload(true);
             return res.data.data.docs;
         } catch (err) {
-            alert('error', 'Error fetching data! Try again.');
+          renderSnackbar('Error fetching data! Try again.');
         }
     }
     async addWord(word) {
@@ -78,14 +79,14 @@ export default class List{
             });
         
             if (res.data.status === 'success') {
-              alert('success', 'Word added scuccessfully');
+              renderSnackbar('Word added successfully');
               return word;
             //   window.setTimeout(() => {
             //     location.assign('/');
             //   }, 1500);
             }
           } catch (err) {
-            alert('error', err.response.data.message);
+            renderSnackbar("Request failed. " + err.response.data.message.name);
           }
     }
 
@@ -102,14 +103,14 @@ export default class List{
               url: `https://wordwallet.herokuapp.com/api/v1/words/${id}`
             });
         
-            if (res.data.status === 'success') {
-              alert('success', 'Word deleted scuccessfully');
+            // if (res.data.status === 'success') {
+            renderSnackbar('Word deleted successfully');
             //   window.setTimeout(() => {
             //     location.assign('/');
             //   }, 1500);
-            }
+            // }
           } catch (err) {
-            alert('error', err.response.data.message);
+            renderSnackbar(err.response.data.message);
           }
     }
 
