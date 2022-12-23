@@ -10,7 +10,7 @@ export default class List{
         try {
             const res = await axios({
                 method: 'GET',
-                url: 'https://wordwallet.herokuapp.com/api/v1/words'
+                url: 'https://wordwallet-api.netlify.app/.netlify/functions/api/v1/words'
             });
             // if ((res.data.status = 'success')) location.reload(true);
             this.words = res.data.data.words;
@@ -48,7 +48,7 @@ export default class List{
         try {
             const res = await axios({
                 method: 'GET',
-                url: `https://wordwallet.herokuapp.com/api/v1/words/${query}`
+                url: `https://wordwallet-api.netlify.app/.netlify/functions/api/v1/words/${query}`
             });
             // if ((res.data.status = 'success')) location.reload(true);
             return res.data.data.docs;
@@ -69,7 +69,7 @@ export default class List{
         try {
             const res = await axios({
               method: 'POST',
-              url: 'https://wordwallet.herokuapp.com/api/v1/words',
+              url: 'https://wordwallet-api.netlify.app/.netlify/functions/api/v1/words',
               data: {
                 word: word.word,
                 meaning: word.meaning,
@@ -100,7 +100,7 @@ export default class List{
         try {
             const res = await axios({
               method: 'DELETE',
-              url: `https://wordwallet.herokuapp.com/api/v1/words/${id}`
+              url: `https://wordwallet-api.netlify.app/.netlify/functions/api/v1/words/${id}`
             });
         
             // if (res.data.status === 'success') {
