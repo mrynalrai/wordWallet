@@ -3,6 +3,7 @@ import { elements } from './views/base';
 import Form from './models/Form';
 import List from './models/List';
 import Search from './models/Search';
+import Login from './models/Login';
 import * as formView from './views/formView';
 import * as listView from './views/listView';
 import * as searchView from './views/searchView';

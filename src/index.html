@@ -13,63 +13,25 @@
         <title>WordWallet</title>
     </head>
     <body>
-        <section id="form" class="form tab-content" data-tab="1">
-            <div class="form__header">
-                <!-- <img class="logo" src="../resources/img/DP_With_Leo_Selfie_Cartoon_filter.jpg" alt="logo"> -->
-                <a href="https://github.com/mrynalrai" target="_blank" style="color: #fff; text-decoration: none">
-                    <ion-icon class='user-icon' name="logo-github"></ion-icon>
-                </a>
-                <h2 class="form__header--title">Mrinal Rai</h2>
+        <div class="login">
+            <div class="loginWrapper">
+                <div class="login__header">
+                    <!-- <img class="logo" src="../resources/img/DP_With_Leo_Selfie_Cartoon_filter.jpg" alt="logo"> -->
+                    <h1 class="login__header--title">WordWallet</h1>
+                </div>
+                <div class="seperator"></div>
+                <div class="login__input">
+                    <form action="/dashboard.html" class="login__input--container">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" autocomplete="off" placeholder="Enter username" required>
+                        <span class="error-message"></span>
+                        <label for="password">Password</label>
+                        <input type="password" id="password" autocomplete="off" placeholder="Enter password" required>
+                        <span class="error-message"></span>
+                        <button class="login__input--container--submit" type="submit">LOGIN</button>
+                    </form>
+                </div>
             </div>
-            <!-- <div class="seperator"></div> -->
-            <div class="form__input">
-                <!-- <h1 class="form__input--title">WordWallet</h1> -->
-                <form class="form__input--container">
-                    <label for="name">enter word*</label>
-                    <input type="text" autocomplete="off" id="formWord" placeholder="New word" required>
-                    <label for="name">enter meaning*</label>
-                    <input type="text" autocomplete="off" id="formMeaning" placeholder="Corresponding meaning" required>
-                    <label for="name">enter sample</label>
-                    <input type="text" autocomplete="off" id="formSample" placeholder="Sentence containing the word">
-                    <label for="name">enter details</label>
-                    <input type="text" autocomplete="off" id="formDetails" placeholder="Root word and further derivation">
-                    <input id="saveBtn" type="submit" value="SAVE IT"></input>
-                </form>
-            </div>
-        </section>
-        <section id="wordList" class="list tab-content" data-tab="2">
-            <div class="list__header">
-                <h1 class="list__header--title">Word List</h1>
-                <form class="list__header--search">
-                    <input type="search" id='search' placeholder="Search" autocomplete="off">
-                    <ion-icon class="list__header--search--icon" name="search"></ion-icon>
-                </form>
-            </div>
-            <div class="list__words">
-                <ul class="list__words--results">
-                    <!-- <li id="#23456">
-                        <a class="item" href="#23456">
-                            <div>
-                                <h2>Churlish <ion-icon class="delete" name="close"></ion-icon> </h2>
-                                <p>rude in a mean-spirited and surly way</p>
-                                <p>It seems churlish to complain</p>
-                                <p>cierlisc</p>
-                            </div>
-                        </a>
-                    </li> -->
-                    <!-- <h2 class="no-result"><em>No results</em></h2> -->
-                </ul>
-            </div>
-        </section>
-        <div class="nav">
-            <!-- <a href="#form"><ion-icon id='home' name="home"></ion-icon></a>
-            <a href="#wordList"><ion-icon id='list' name="list"></ion-icon></a> -->
-            <button id='home_button' class="tab__button" data-for-tab="1">
-                <ion-icon id='home' name="home"></ion-icon>
-            </button>
-            <button id='list_button' class="tab__button" data-for-tab="2">
-                <ion-icon id='list' name="list"></ion-icon>
-            </button>
         </div>
         <div id="snackbar">Some text some message..</div>
         <!-- Links to Font Awesome -->

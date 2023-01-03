@@ -11,6 +11,7 @@ export default class List{
             const res = await axios({
                 method: 'GET',
                 url: 'https://wordwallet-api.netlify.app/.netlify/functions/api/v1/words'
+                // url: 'http://127.0.0.1:9000/.netlify/functions/api/v1/words'
             });
             // if ((res.data.status = 'success')) location.reload(true);
             this.words = res.data.data.words;
@@ -49,6 +50,7 @@ export default class List{
             const res = await axios({
                 method: 'GET',
                 url: `https://wordwallet-api.netlify.app/.netlify/functions/api/v1/words/${query}`
+                // url: `https://http://127.0.0.1:9000/.netlify/functions/api/v1/words/${query}`
             });
             // if ((res.data.status = 'success')) location.reload(true);
             return res.data.data.docs;
@@ -70,6 +72,7 @@ export default class List{
             const res = await axios({
               method: 'POST',
               url: 'https://wordwallet-api.netlify.app/.netlify/functions/api/v1/words',
+              // url: 'http://127.0.0.1:9000/.netlify/functions/api/v1/words',
               data: {
                 word: word.word,
                 meaning: word.meaning,
@@ -101,6 +104,7 @@ export default class List{
             const res = await axios({
               method: 'DELETE',
               url: `https://wordwallet-api.netlify.app/.netlify/functions/api/v1/words/${id}`
+              // url: `http://127.0.0.1:9000/.netlify/functions/api/v1/words/${id}`
             });
         
             // if (res.data.status === 'success') {
