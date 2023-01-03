@@ -83,7 +83,8 @@ export default class Login {
               data: {
                 email,
                 password
-              }
+              },
+			  credentials: 'include', // Don't forget to specify this if you need cookies
             });
         
             if (res.data.status === 'success') {
