@@ -78,7 +78,7 @@ export default class Login {
 			console.log(email, password);
             const res = await axios({
               method: 'POST',
-              url: 'https://wordwallet-api.netlify.app/.netlify/functions/api/v1/words',
+              url: 'https://wordwallet-api.netlify.app/.netlify/functions/api/v1/users/login',
               // url: 'http://127.0.0.1:9000/.netlify/functions/api/v1/users/login',
               data: {
                 email,
