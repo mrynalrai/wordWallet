@@ -85,6 +85,7 @@ export default class Login {
                 password
               },
 			  credentials: 'include', // Don't forget to specify this if you need cookies
+			  withCredentials: true
             });
         
             if (res.data.status === 'success') {
