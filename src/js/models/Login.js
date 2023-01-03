@@ -84,7 +84,7 @@ export default class Login {
                 email,
                 password
               },
-			  credentials: 'include', // Don't forget to specify this if you need cookies
+			  // credentials: 'include', // Don't forget to specify this if you need cookies
 			  withCredentials: true
             });
         
