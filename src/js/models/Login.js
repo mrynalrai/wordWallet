@@ -23,7 +23,7 @@ export default class Login {
 			if (error == 0) {
 				//do login api here
 				self.userLogin(document.querySelector(`#${self.fields[0]}`).value, document.querySelector(`#${self.fields[1]}`).value)
-				this.form.submit();
+				// this.form.submit();
 				// localStorage.setItem("auth", 1);
 			}
 		});
