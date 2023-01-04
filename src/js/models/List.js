@@ -134,7 +134,7 @@ export default class List{
           method: 'GET',
           // url: 'http://127.0.0.1:9000/.netlify/functions/api/v1/users/logout',
           url: `https://wordwallet-api.netlify.app/.netlify/functions/api/v1/users/logout`,
-          // withCredentials: true,
+          withCredentials: true,
           credentials: 'include'
         });
         // setTimeout(() => {
