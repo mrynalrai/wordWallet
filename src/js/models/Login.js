@@ -23,7 +23,6 @@ export default class Login {
 			if (error == 0) {
 				//do login api here
 				self.userLogin(document.querySelector(`#${self.fields[0]}`).value, document.querySelector(`#${self.fields[1]}`).value)
-				this.form.submit();
 				// localStorage.setItem("auth", 1);
 			}
 		});
@@ -91,6 +90,7 @@ export default class Login {
         
             if (res.data.status === 'success') {
               renderSnackbar('User successfully login');
+			  this.form.submit();
             //   return word;
             //   window.setTimeout(() => {
             //     location.assign('/');
