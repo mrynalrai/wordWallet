@@ -25,7 +25,7 @@
                 </div>
                 <div class="seperator"></div>
                 <div class="login__input">
-                    <form action="/dashboard.html" class="login__input--container">
+                    <form class="login__input--container">
                         <label for="username">Username</label>
                         <input type="text" id="username" autocomplete="off" placeholder="Enter username" required>
                         <span class="error-message"></span>
@@ -41,12 +41,18 @@
             <section id="form" class="form tab-content" data-tab="1">
                 <div class="form__header">
                     <!-- <img class="logo" src="../resources/img/DP_With_Leo_Selfie_Cartoon_filter.jpg" alt="logo"> -->
-                    <a href="https://github.com/mrynalrai" target="_blank" style="color: #fff; text-decoration: none">
+                    <!-- <a href="https://github.com/mrynalrai" target="_blank" style="color: #fff; text-decoration: none">
                         <ion-icon class='user-icon' name="logo-github"></ion-icon>
-                    </a>
-                    <h2 class="form__header--title">Mrinal Rai</h2>
+                    </a> -->
+                    <div class="form__header--left">
+                        <ion-icon class='user-icon' name="person-circle-sharp"></ion-icon>
+                        <h2 class="form__header--left--title">Mrinal Rai</h2>
+                    </div>
+                    <div class="form__header--right" id="logout">
+                        <ion-icon name="log-out-outline"></ion-icon>
+                    </div>
                 </div>
-                <!-- <div class="seperator"></div> -->
+                <div class="seperator"></div>
                 <div class="form__input">
                     <!-- <h1 class="form__input--title">WordWallet</h1> -->
                     <form class="form__input--container">

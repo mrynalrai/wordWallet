@@ -88,6 +88,7 @@ async function deleteWord(word) {
     listView.renderResults(list);
     searching(list);
 }
+
 elements.wordContainer.addEventListener('click', ctrlDeleteWord);
 
 elements.searchButton.addEventListener('click', ctrlSearch);
@@ -189,3 +190,11 @@ function setupTabs() {
   document.addEventListener('DOMContentLoaded',()=>{
     setupTabs();
   })
+
+async function logoutUser(word) {
+    // listView.renderSpinner()
+    await state.list.logout();
+}
+if (logoutUser) {
+    elements.logoutBtn.addEventListener('click', logoutUser);
+}

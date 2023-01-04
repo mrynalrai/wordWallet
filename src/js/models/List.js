@@ -128,6 +128,22 @@ export default class List{
           }
     }
 
+    async logout() {
+      try {
+        const res = await axios({
+          method: 'GET',
+          // url: 'http://127.0.0.1:9000/.netlify/functions/api/v1/users/logout',
+          url: `https://wordwallet-api.netlify.app/.netlify/functions/api/v1/users/logout`,
+          withCredentials: true,
+			    credentials: 'include'
+        });
+        if ((res.data.status = 'success')) location.reload(true);
+      } catch (err) {
+        console.log(err.response);
+        renderSnackbar('Error logging out! Try again.');
+      }
+    };
+
     // persistData() {
     //     localStorage.setItem('words', JSON.stringify(this.words));
     // }

@@ -72,22 +72,31 @@ html {
                     padding: 20px;
                     display: flex;
                     align-items: center;
-    
-                    // img {
-                    //     border-radius: 50%;
-                    //     width: 35px;
-                    //     height: 35px;
-                    // }
-                    .user-icon {
-                        font-size: 200%;
+                    justify-content: space-between;
+                    &--left {
+                        display: flex;
+
+                        // img {
+                        //     border-radius: 50%;
+                        //     width: 35px;
+                        //     height: 35px;
+                        // }
+                        .user-icon {
+                            font-size: 200%;
+                        }
+        
+                        &--title {
+                            // font-weight: bold;
+                            margin-left: 10px;
+                            font-family: 'Raleway', Arial, Helvetica, sans-serif;
+                            letter-spacing: 1px;
+                            font-weight: 100;
+                        }
+
                     }
-    
-                    &--title {
-                        // font-weight: bold;
-                        margin-left: 10px;
-                        font-family: 'Raleway', Arial, Helvetica, sans-serif;
-                        letter-spacing: 1px;
-                        font-weight: 100;
+                    &--right {
+                        font-size: 120%;
+                        cursor: pointer;
                     }
                 }
     
