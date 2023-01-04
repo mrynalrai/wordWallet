@@ -133,7 +133,9 @@ export default class List{
         const res = await axios({
           method: 'GET',
           // url: 'http://127.0.0.1:9000/.netlify/functions/api/v1/users/logout',
-          url: `https://wordwallet-api.netlify.app/.netlify/functions/api/v1/users/logout`
+          url: `https://wordwallet-api.netlify.app/.netlify/functions/api/v1/users/logout`,
+          withCredentials: true,
+          credentials: 'include'
         });
         // setTimeout(() => {
         //   if ((res.data.status = 'success')) location.reload(true);          
