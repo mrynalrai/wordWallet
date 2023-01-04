@@ -145,7 +145,7 @@ async function renderWordList() {
     // Restore likes
     let list = await state.list.getWordList();
     elements.appSpinner.style.display = "none";
-    if (list = 401) {
+    if (list == 401) {
         console.log('Route to Login');
         elements.dashboard.style.display = "none";
         elements.loginScreen.style.display = "flex";
