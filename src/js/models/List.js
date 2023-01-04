@@ -10,8 +10,9 @@ export default class List{
         try {
             const res = await axios({
                 method: 'GET',
-                url: 'https://wordwallet-api.netlify.app/.netlify/functions/api/v1/words'
+                url: 'https://wordwallet-api.netlify.app/.netlify/functions/api/v1/words',
                 // url: 'http://127.0.0.1:9000/.netlify/functions/api/v1/words'
+                credentials: 'include'
             });
             // if ((res.data.status = 'success')) location.reload(true);
             this.words = res.data.data.words;
