@@ -12,7 +12,8 @@ export default class List{
                 method: 'GET',
                 url: 'https://wordwallet-api.netlify.app/.netlify/functions/api/v1/words',
                 // url: 'http://127.0.0.1:9000/.netlify/functions/api/v1/words'
-                credentials: 'include'
+                withCredentials: true,
+			          credentials: 'include'
             });
             // if ((res.data.status = 'success')) location.reload(true);
             this.words = res.data.data.words;
@@ -52,8 +53,10 @@ export default class List{
         try {
             const res = await axios({
                 method: 'GET',
-                url: `https://wordwallet-api.netlify.app/.netlify/functions/api/v1/words/${query}`
+                url: `https://wordwallet-api.netlify.app/.netlify/functions/api/v1/words/${query}`,
                 // url: `https://http://127.0.0.1:9000/.netlify/functions/api/v1/words/${query}`
+                withCredentials: true,
+			          credentials: 'include'
             });
             // if ((res.data.status = 'success')) location.reload(true);
             return res.data.data.docs;
@@ -81,7 +84,9 @@ export default class List{
                 meaning: word.meaning,
                 sample: word.sample,
                 details: word.details
-              }
+              },
+              withCredentials: true,
+			        credentials: 'include'
             });
         
             if (res.data.status === 'success') {
@@ -106,8 +111,10 @@ export default class List{
         try {
             const res = await axios({
               method: 'DELETE',
-              url: `https://wordwallet-api.netlify.app/.netlify/functions/api/v1/words/${id}`
+              url: `https://wordwallet-api.netlify.app/.netlify/functions/api/v1/words/${id}`,
               // url: `http://127.0.0.1:9000/.netlify/functions/api/v1/words/${id}`
+              withCredentials: true,
+			        credentials: 'include'
             });
         
             // if (res.data.status === 'success') {
