@@ -61,6 +61,7 @@ html {
 
         .dashboard {
             display: none;
+            width: 100%;
             .form {
                 width: 40%;
                 border-radius: 25px 0 0 25px;
@@ -627,6 +628,7 @@ html {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    width: 100%;
 }
 .spinner__container {
     margin-top: 24px;
