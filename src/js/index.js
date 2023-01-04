@@ -144,6 +144,15 @@ async function renderWordList() {
     listView.renderSpinner();
     // Restore likes
     let list = await state.list.getWordList();
+    elements.appSpinner.style.display = "none";
+    if (list = 401) {
+        console.log('Route to Login');
+        elements.dashboard.style.display = "none";
+        elements.loginScreen.style.display = "flex";
+    } else {
+        elements.loginScreen.style.display = "none";
+        elements.dashboard.style.display = "flex";
+    }
     listView.clearSpinner();
     // Render the existing words
     listView.renderResults(list);

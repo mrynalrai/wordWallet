@@ -14,5 +14,8 @@ export const elements = {
     firstTab: document.querySelector('#form'),
     secondTab: document.querySelector('#wordList'),
     saveBtn: document.querySelector('#saveBtn'),
-    snackBar: document.getElementById("snackbar")
+    snackBar: document.getElementById("snackbar"),
+    appSpinner: document.querySelector('#app_loader'),
+    loginScreen: document.querySelector('.login'),
+    dashboard: document.querySelector('.dashboard')
 };

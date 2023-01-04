@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { renderSnackbar } from '../uiComponents/Snackbar';
+import { elements } from '../views/base';
 
 export default class Login {
 	constructor(form, fields) {
@@ -23,6 +24,7 @@ export default class Login {
 			if (error == 0) {
 				//do login api here
 				self.userLogin(document.querySelector(`#${self.fields[0]}`).value, document.querySelector(`#${self.fields[1]}`).value)
+				// this.form.submit();
 				// localStorage.setItem("auth", 1);
 			}
 		});
@@ -90,14 +92,15 @@ export default class Login {
         
             if (res.data.status === 'success') {
               renderSnackbar('User successfully login');
-			  this.form.submit();
             //   return word;
             //   window.setTimeout(() => {
             //     location.assign('/');
             //   }, 1500);
+				elements.loginScreen.style.display = "none";
+				elements.dashboard.style.display = "flex";
             }
           } catch (err) {
-			console.log(err);
+			console.log(err.response);
             renderSnackbar("Request failed. ");
           }
     }

@@ -40,7 +40,9 @@ export default class List{
 
             return this.words;
         } catch (err) {
-          renderSnackbar('Error fetching data! Try again.');
+          console.log(err.response);
+          renderSnackbar(err.response.data.message);
+          return err.response.data.error.statusCode;
         }
     }
     async getWord(query) {
