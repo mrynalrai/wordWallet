@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { renderSnackbar } from '../uiComponents/Snackbar';
 import { elements } from '../views/base';
+import { renderWordList } from '../index';
 
 export default class Login {
 	constructor(form, fields) {
@@ -76,7 +77,7 @@ export default class Login {
 
 	async userLogin(email, password) {
         try {
-			console.log(email, password);
+			// console.log(email, password);
             const res = await axios({
               method: 'POST',
               url: 'https://wordwallet-api.netlify.app/.netlify/functions/api/v1/users/login',
@@ -98,6 +99,7 @@ export default class Login {
             //   }, 1500);
 				elements.loginScreen.style.display = "none";
 				elements.dashboard.style.display = "flex";
+				renderWordList();
             }
           } catch (err) {
 			console.log(err.response);

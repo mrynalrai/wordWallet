@@ -131,14 +131,15 @@ export default class List{
     async logout() {
       try {
         const res = await axios({
-          method: 'GET',
+          method: 'POST',
           // url: 'http://127.0.0.1:9000/.netlify/functions/api/v1/users/logout',
           url: `https://wordwallet-api.netlify.app/.netlify/functions/api/v1/users/logout`,
+          data: {},
           withCredentials: true,
           credentials: 'include'
         });
         // setTimeout(() => {
-        //   if ((res.data.status = 'success')) location.reload(true);          
+        //   if ((res.data.status === 'success')) location.reload(true);          
         // }, 2000);
       } catch (err) {
         console.log(err.response);

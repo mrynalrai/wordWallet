@@ -141,7 +141,7 @@ window.addEventListener('load', () => {
     elements.firstTab.style.display = "flex";
 });
 
-async function renderWordList() {
+export const renderWordList = async () => {
     listView.renderSpinner();
     // Restore likes
     let list = await state.list.getWordList();
