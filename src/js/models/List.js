@@ -138,9 +138,7 @@ export default class List{
           withCredentials: true,
           credentials: 'include'
         });
-        // setTimeout(() => {
-        //   if ((res.data.status === 'success')) location.reload(true);          
-        // }, 2000);
+        if ((res.data.status === 'success')) location.reload(true);          
       } catch (err) {
         console.log(err.response);
         renderSnackbar('Error logging out! Try again.');
