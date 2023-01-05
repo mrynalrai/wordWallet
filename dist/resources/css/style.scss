@@ -340,7 +340,7 @@ html {
                 display: flex;
                 align-items: center;
                 .login__header {
-                    padding: 40px;
+                    padding: 20px;
                     display: flex;
                     align-items: center;
     
@@ -451,6 +451,8 @@ html {
                     display: flex;
                     &--signup {
                         cursor: pointer;
+                        border-bottom: solid white 1px;
+                        padding-bottom: 2px;
                     }
                 }
             }           
@@ -578,8 +580,10 @@ html {
 
                 .signup__footer {
                     display: flex;
-                    &--signup {
+                    &--login {
                         cursor: pointer;
+                        border-bottom: solid white 1px;
+                        padding-bottom: 2px;
                     }
                 }
             }           
