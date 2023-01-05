@@ -42,7 +42,9 @@ export default class List{
             return this.words;
         } catch (err) {
           console.log(err.response);
-          renderSnackbar(err.response.data.message);
+          // renderSnackbar(err.response.data.message);
+          // https://stackoverflow.com/questions/57222395/hosting-a-react-app-and-express-app-on-the-same-domain
+          renderSnackbar('You are not logged in! Please allow third-party cookies on your browser to login.');
           return err.response.data.error.statusCode;
         }
     }
