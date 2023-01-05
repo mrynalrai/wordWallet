@@ -26,14 +26,44 @@
                 <div class="seperator"></div>
                 <div class="login__input">
                     <form class="login__input--container">
-                        <label for="username">Username</label>
-                        <input type="text" id="username" autocomplete="off" placeholder="Enter username" required>
+                        <label for="username">Email address</label>
+                        <input type="text" id="username" autocomplete="off" placeholder="Enter email address" required>
                         <span class="error-message"></span>
                         <label for="password">Password</label>
                         <input type="password" id="password" autocomplete="off" placeholder="Enter password" required>
                         <span class="error-message"></span>
                         <button class="login__input--container--submit" type="submit">LOGIN</button>
                     </form>
+                </div>
+                <div class="login__footer">
+                    <p id="signupRedirect" class="login__footer--signup">Don't have an account? Sign up here.</p>
+                </div>
+            </div>
+        </div>
+        <div class="signup">
+            <div class="signupWrapper">
+                <div class="signup__header">
+                    <!-- <img class="logo" src="../resources/img/DP_With_Leo_Selfie_Cartoon_filter.jpg" alt="logo"> -->
+                    <h1 class="login__header--title">WordWallet</h1>
+                </div>
+                <div class="seperator"></div>
+                <div class="signup__input">
+                    <form class="signup__input--container">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" autocomplete="off" placeholder="Enter name" required>
+                        <label for="email">Email address</label>
+                        <input type="text" id="email" autocomplete="off" placeholder="Enter email address" required>
+                        <span class="error-message"></span>
+                        <label for="signupPassword">Password</label>
+                        <input type="password" id="signupPassword" autocomplete="off" placeholder="Enter password" required>
+                        <label for="passwordCnfrm">Confirm Password</label>
+                        <input type="password" id="passwordCnfrm" autocomplete="off" placeholder="Confirm password" required>
+                        <span class="error-message"></span>
+                        <button class="signup__input--container--submit" type="submit">SIGN UP</button>
+                    </form>
+                </div>
+                <div class="signup__footer">
+                    <p id="loginRedirect" class="signup__footer--login">Already have an account? Login here.</p>
                 </div>
             </div>
         </div>

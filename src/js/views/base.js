@@ -17,6 +17,9 @@ export const elements = {
     snackBar: document.getElementById("snackbar"),
     appSpinner: document.querySelector('#app_loader'),
     loginScreen: document.querySelector('.login'),
+    signupScreen: document.querySelector('.signup'),
     dashboard: document.querySelector('.dashboard'),
-    logoutBtn: document.querySelector('#logout')
+    logoutBtn: document.querySelector('#logout'),
+    signupRedirect: document.querySelector('#signupRedirect'),
+    loginRedirect: document.querySelector('#loginRedirect'),
 };

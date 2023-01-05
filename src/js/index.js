@@ -4,6 +4,7 @@ import Form from './models/Form';
 import List from './models/List';
 import Search from './models/Search';
 import Login from './models/Login';
+import Signup from './models/Signup';
 import * as formView from './views/formView';
 import * as listView from './views/listView';
 import * as searchView from './views/searchView';
@@ -149,9 +150,11 @@ export const renderWordList = async () => {
     if (list == 401) {
         console.log('Route to Login');
         elements.dashboard.style.display = "none";
+        elements.signupScreen.style.display = "none";
         elements.loginScreen.style.display = "flex";
     } else {
         elements.loginScreen.style.display = "none";
+        elements.signupScreen.style.display = "none";
         elements.dashboard.style.display = "flex";
     }
     listView.clearSpinner();
@@ -198,3 +201,15 @@ async function logoutUser(word) {
 if (logoutUser) {
     elements.logoutBtn.addEventListener('click', logoutUser);
 }
+
+elements.signupRedirect.addEventListener('click', () => {
+    elements.dashboard.style.display = "none";
+    elements.loginScreen.style.display = "none";
+    elements.signupScreen.style.display = "flex";
+});
+
+elements.loginRedirect.addEventListener('click', () => {
+    elements.dashboard.style.display = "none";
+    elements.signupScreen.style.display = "none";
+    elements.loginScreen.style.display = "flex";
+});
