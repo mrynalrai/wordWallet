@@ -144,15 +144,17 @@ window.addEventListener('load', () => {
 
 export const renderWordList = async () => {
     listView.renderSpinner();
-    // Restore likes
-    let list = await state.list.getWordList();
+    let list;
+    let loginData = await state.list.getUserDetails();
     elements.appSpinner.style.display = "none";
-    if (list == 401) {
+    if (loginData == 401) {
         console.log('Route to Login');
         elements.dashboard.style.display = "none";
         elements.signupScreen.style.display = "none";
         elements.loginScreen.style.display = "flex";
     } else {
+        listView.renderUserDetails(loginData[0], loginData[1]);
+        list = await state.list.getWordList();
         elements.loginScreen.style.display = "none";
         elements.signupScreen.style.display = "none";
         elements.dashboard.style.display = "flex";

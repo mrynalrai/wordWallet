@@ -68,3 +68,9 @@ export const renderNolistMsg = () => {
 export const deleteWord = node => {
     if (node.parentElement) node.parentElement.removeChild(node);
 }
+
+export const renderUserDetails = (name, email) => {
+    console.log(name, email)
+    elements.displayName.innerHTML = name;
+    elements.displayEmail.innerHTML = email;
+}
