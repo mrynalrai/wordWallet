@@ -21,6 +21,7 @@ export const elements = {
     dashboard: document.querySelector('.dashboard'),
     logoutBtn: document.querySelector('#logout'),
     signupRedirect: document.querySelector('#signupRedirect'),
+    loginRedirect: document.querySelector('#loginRedirect'),
     displayName: document.querySelector('#displayName'),
     displayEmail: document.querySelector('#displayEmail'),
 };
