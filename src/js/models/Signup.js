@@ -80,8 +80,7 @@ export default class Signup {
 			// console.log(email, password);
             const res = await axios({
               method: 'POST',
-            //   url: 'https://wordwallet-api.netlify.app/.netlify/functions/api/v1/users/signup',
-			  url: 'https://api.mrinalrai.in/.netlify/functions/api/v1/users/signup',
+              url: 'https://api.mywordwallet.com/.netlify/functions/api/v1/users/signup',
               // url: 'http://127.0.0.1:9000/.netlify/functions/api/v1/users/signup',
               data: {
 				name,
