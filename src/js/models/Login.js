@@ -14,6 +14,7 @@ export default class Login {
 		let self = this;
 
 		this.form.addEventListener("submit", (e) => {
+			elements.loginBtn.value = "LOGGING IN...";
 			e.preventDefault();
 			var error = 0;
 			self.fields.forEach((field) => {
@@ -92,6 +93,7 @@ export default class Login {
             });
         
             if (res.data.status === 'success') {
+				elements.loginBtn.value = "LOGIN";
               renderSnackbar('User successfully login');
             //   return word;
             //   window.setTimeout(() => {
@@ -103,7 +105,8 @@ export default class Login {
 				renderWordList();
             }
           } catch (err) {
-			console.log(err.response);
+			elements.loginBtn.value = "LOGGING IN...";
+			// console.log(err.response);
             renderSnackbar("Request failed. ");
           }
     }

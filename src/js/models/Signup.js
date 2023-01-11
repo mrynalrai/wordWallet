@@ -14,6 +14,7 @@ export default class Signup {
 		let self = this;
 
 		this.form.addEventListener("submit", (e) => {
+			elements.signupBtn.value = "SIGNING UP...";
 			e.preventDefault();
 			var error = 0;
 			self.fields.forEach((field) => {
@@ -77,7 +78,6 @@ export default class Signup {
 
 	async userSignup(name, email, password, passwordConfirm) {
         try {
-			// console.log(email, password);
             const res = await axios({
               method: 'POST',
               url: 'https://api.mywordwallet.com/.netlify/functions/api/v1/users/signup',
@@ -94,6 +94,7 @@ export default class Signup {
             });
         
             if (res.data.status === 'success') {
+				elements.signupBtn.value = "SIGN UP";
               renderSnackbar('User successfully created');
             //   return word;
             //   window.setTimeout(() => {
@@ -105,7 +106,8 @@ export default class Signup {
 				renderWordList();
             }
           } catch (err) {
-			console.log(err.response);
+			elements.signupBtn.value = "SIGN UP";
+			// console.log(err.response);
             renderSnackbar("Request failed. ");
           }
     }

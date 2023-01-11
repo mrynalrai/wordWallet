@@ -24,4 +24,6 @@ export const elements = {
     loginRedirect: document.querySelector('#loginRedirect'),
     displayName: document.querySelector('#displayName'),
     displayEmail: document.querySelector('#displayEmail'),
+    loginBtn: document.querySelector('#loginBtn'),
+    signupBtn: document.querySelector('#signupBtn'),
 };

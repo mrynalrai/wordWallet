@@ -1,6 +1,7 @@
 import uniqid from 'uniqid';
 import axios from 'axios';
 import { renderSnackbar } from '../uiComponents/Snackbar';
+import { elements } from '../views/base';
 
 export default class List{
     constructor() {
@@ -140,9 +141,13 @@ export default class List{
           withCredentials: true,
           credentials: 'include'
         });
-        if ((res.data.status === 'success')) location.reload(true);          
+        if ((res.data.status === 'success')) {
+          elements.logoutBtn.style.color = "#ffffff";
+          location.reload(true);
+        }
       } catch (err) {
-        console.log(err.response);
+        elements.logoutBtn.style.color = "#ffffff";
+        // console.log(err.response);
         renderSnackbar('Error logging out! Try again.');
       }
     };

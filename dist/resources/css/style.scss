@@ -436,7 +436,7 @@ html {
                             cursor: pointer;
                             display: block;
                             font-size: 80%;
-                            // width: 60%;
+                            width: auto !important;
                             letter-spacing: 1px;
                             padding: 20px;
                             color: white;
@@ -540,7 +540,7 @@ html {
                     }
     
                     &--container {
-                        margin: 20px 15px;
+                        margin: 10px 15px;
     
                         label {
                             display: block;
@@ -573,7 +573,7 @@ html {
                             cursor: pointer;
                             display: block;
                             font-size: 80%;
-                            // width: 60%;
+                            width: auto !important;
                             letter-spacing: 1px;
                             padding: 20px;
                             color: white;

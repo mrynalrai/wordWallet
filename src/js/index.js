@@ -197,7 +197,7 @@ function setupTabs() {
   })
 
 async function logoutUser(word) {
-    // listView.renderSpinner()
+    elements.logoutBtn.style.color = "#808080";
     await state.list.logout();
 }
 if (logoutUser) {
