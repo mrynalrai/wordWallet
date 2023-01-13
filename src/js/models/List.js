@@ -169,7 +169,7 @@ export default class List{
         console.log(err.response);
           // renderSnackbar(err.response.data.message);
           renderSnackbar('You are not logged in!');
-          return err.response.data.error.statusCode;
+          return err.response.status;
       }
     };
 
