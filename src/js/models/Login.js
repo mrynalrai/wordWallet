@@ -105,7 +105,7 @@ export default class Login {
 				renderWordList();
             }
           } catch (err) {
-			elements.loginBtn.value = "LOGGING IN...";
+			elements.loginBtn.value = "LOGIN";
 			// console.log(err.response);
             renderSnackbar("Request failed. ");
           }
