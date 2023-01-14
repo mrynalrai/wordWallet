@@ -166,7 +166,7 @@ export default class List{
           return [res.data.data.name, res.data.data.email];
         }          
       } catch (err) {
-        console.log(err.response);
+        // console.log(err.response);
           // renderSnackbar(err.response.data.message);
           renderSnackbar('You are not logged in!');
           return err.response.status;

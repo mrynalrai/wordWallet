@@ -5,7 +5,9 @@ export const clearResults = () => {
 }
 
 export const renderResults = (words) => {
-    words.forEach(renderWord);
+    if (words){ 
+        words.forEach(renderWord);
+    }
 };
 
 export const renderSpinner = () => {

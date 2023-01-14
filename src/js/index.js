@@ -5,6 +5,7 @@ import List from './models/List';
 import Search from './models/Search';
 import Login from './models/Login';
 import Signup from './models/Signup';
+import ForgotPass from './models/ForgotPass';
 import * as formView from './views/formView';
 import * as listView from './views/listView';
 import * as searchView from './views/searchView';
@@ -17,9 +18,14 @@ import * as searchView from './views/searchView';
 const state = {};
 state.searching = false;
 elements.searchForm.style.visibility = 'hidden';
+const screens = new Map();
+screens.set('dashboard', elements.dashboard);
+screens.set('signupScreen', elements.signupScreen);
+screens.set('loginScreen', elements.loginScreen);
+screens.set('forgotPassScreen', elements.forgotPassScreen);
 
 function searching(words) {
-    if (words.length > 0) {
+    if (words && words.length > 0) {
         state.search = true;
         elements.searchForm.style.visibility = 'visible';
     } else {
@@ -132,14 +138,28 @@ async function searchWord(query) {
 // Restore word list on page load
 window.addEventListener('load', () => {
     state.list = new List();
-    
-    renderWordList();
+    const query = window.location.search.substring(1);
+    let queryParams = query.split("=");
+    if (queryParams[0] && queryParams[0] == "resetToken") {
+        console.log(queryParams[1]); 
+        elements.appSpinner.style.display = "none";
 
-    elements.navHome.classList.add('active');
-    elements.navHomeButton.classList.add('clicked');
-    elements.navListButton.classList.remove('clicked');
-    elements.navList.classList.remove('active');
-    elements.firstTab.style.display = "flex";
+        
+        elements.navHome.classList.add('active');
+        elements.navHomeButton.classList.add('clicked');
+        elements.navListButton.classList.remove('clicked');
+        elements.navList.classList.remove('active');
+        elements.firstTab.style.display = "flex";
+    } else {
+    
+        renderWordList();
+    
+        elements.navHome.classList.add('active');
+        elements.navHomeButton.classList.add('clicked');
+        elements.navListButton.classList.remove('clicked');
+        elements.navList.classList.remove('active');
+        elements.firstTab.style.display = "flex";
+    }
 });
 
 export const renderWordList = async () => {
@@ -148,16 +168,11 @@ export const renderWordList = async () => {
     let loginData = await state.list.getUserDetails();
     elements.appSpinner.style.display = "none";
     if (loginData == 401) {
-        console.log('Route to Login');
-        elements.dashboard.style.display = "none";
-        elements.signupScreen.style.display = "none";
-        elements.loginScreen.style.display = "flex";
+        showScreen("loginScreen");
     } else {
         listView.renderUserDetails(loginData[0], loginData[1]);
         list = await state.list.getWordList();
-        elements.loginScreen.style.display = "none";
-        elements.signupScreen.style.display = "none";
-        elements.dashboard.style.display = "flex";
+        showScreen("dashboard");
     }
     listView.clearSpinner();
     // Render the existing words
@@ -205,13 +220,31 @@ if (logoutUser) {
 }
 
 elements.signupRedirect.addEventListener('click', () => {
-    elements.dashboard.style.display = "none";
-    elements.loginScreen.style.display = "none";
-    elements.signupScreen.style.display = "flex";
+    showScreen("signupScreen");
 });
 
 elements.loginRedirect.addEventListener('click', () => {
-    elements.dashboard.style.display = "none";
-    elements.signupScreen.style.display = "none";
-    elements.loginScreen.style.display = "flex";
+    showScreen("loginScreen");
 });
+
+elements.forgotPassLoginRedirectPostEmail.addEventListener('click', () => {
+    location.reload(true);
+})
+
+elements.forgotPassRedirect.addEventListener('click', () => {
+    showScreen("forgotPassScreen");
+});
+elements.forgotPassLoginRedirect.addEventListener('click', () => {
+    showScreen("loginScreen");
+});
+
+export const showScreen = (screen) => {
+    // console.log(screen);
+    for (const [key, val] of screens) {
+        if (key !== screen) {
+            val.style.display = "none";
+        } else {
+            val.style.display = "flex";   
+        }
+    }
+}

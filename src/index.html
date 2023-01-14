@@ -36,6 +36,7 @@
                     </form>
                 </div>
                 <div class="login__footer">
+                    <p id="forgotPassRedirect" class="login__footer--signup">Forgot your password?</p>
                     <p id="signupRedirect" class="login__footer--signup">Don't have an account? Sign up here.</p>
                 </div>
             </div>
@@ -64,6 +65,31 @@
                 </div>
                 <div class="signup__footer">
                     <p id="loginRedirect" class="signup__footer--login">Already have an account? Login here.</p>
+                </div>
+            </div>
+        </div>
+        <div class="forgotPass">
+            <div class="forgotPassWrapper">
+                <div class="forgotPass__header">
+                    <!-- <img class="logo" src="../resources/img/DP_With_Leo_Selfie_Cartoon_filter.jpg" alt="logo"> -->
+                    <h1 class="forgotPass__header--title">WordWallet</h1>
+                </div>
+                <div class="seperator"></div>
+                <div class="forgotPass__subHeader">
+                    <h1 id="forgotPass__subHeader--title1" class="forgotPass__subHeader--title1">Reset your password.</h1>
+                    <p id="forgotPass__subHeader--title2" class="forgotPass__subHeader--title2">Enter your email address below and we’ll send you a link with instructions.</p>
+                    <div id="forgotPassLoginRedirectPostEmail" class="forgotPass__subHeader--login" type="button"> LOGIN </div>
+                </div>
+                <div class="forgotPass__input">
+                    <form class="forgotPass__input--container">
+                        <label for="forgotEmail">Email address*</label>
+                        <input type="text" id="forgotEmail" autocomplete="off" placeholder="Enter email address" required>
+                        <span class="error-message"></span>
+                        <input id="forgotBtn" class="forgotPass__input--container--submit" type="submit" value="SUBMIT"></button>
+                    </form>
+                </div>
+                <div class="forgotPass__footer">
+                    <p id="forgotPassLoginRedirect" class="forgotPass__footer--signup">Remember your password? Login here.</p>
                 </div>
             </div>
         </div>
