@@ -3,6 +3,7 @@ import { elements } from './views/base';
 import Form from './models/Form';
 import List from './models/List';
 import Search from './models/Search';
+import ResetPass from './models/ResetPass';
 import Login from './models/Login';
 import Signup from './models/Signup';
 import ForgotPass from './models/ForgotPass';
@@ -23,6 +24,7 @@ screens.set('dashboard', elements.dashboard);
 screens.set('signupScreen', elements.signupScreen);
 screens.set('loginScreen', elements.loginScreen);
 screens.set('forgotPassScreen', elements.forgotPassScreen);
+screens.set('resetPassScreen', elements.resetPassScreen);
 
 function searching(words) {
     if (words && words.length > 0) {
@@ -143,7 +145,11 @@ window.addEventListener('load', () => {
     if (queryParams[0] && queryParams[0] == "resetToken") {
         console.log(queryParams[1]); 
         elements.appSpinner.style.display = "none";
-
+        showScreen("resetPassScreen");
+        if (elements.resetForm) {
+            const fields = ["resetPass", "resetConfirmPass"];
+            const validator = new ResetPass(elements.resetForm, fields, queryParams[1]);
+        }
         
         elements.navHome.classList.add('active');
         elements.navHomeButton.classList.add('clicked');
@@ -228,6 +234,11 @@ elements.loginRedirect.addEventListener('click', () => {
 });
 
 elements.forgotPassLoginRedirectPostEmail.addEventListener('click', () => {
+    window.history.pushState({}, document.title, "/");
+    location.reload(true);
+})
+elements.resetPassLoginRedirectPostEmail.addEventListener('click', () => {
+    window.history.pushState({}, document.title, "/");
     location.reload(true);
 })
 
@@ -235,6 +246,9 @@ elements.forgotPassRedirect.addEventListener('click', () => {
     showScreen("forgotPassScreen");
 });
 elements.forgotPassLoginRedirect.addEventListener('click', () => {
+    showScreen("loginScreen");
+});
+elements.resetPassLoginRedirect.addEventListener('click', () => {
     showScreen("loginScreen");
 });
 

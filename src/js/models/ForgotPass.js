@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { renderSnackbar } from '../uiComponents/Snackbar';
 import { elements } from '../views/base';
-import { renderWordList, showScreen } from '../index';
 import * as forgotPassView from './../views/forgotPassView';
 
 export default class ForgotPass {
@@ -41,7 +40,7 @@ export default class ForgotPass {
 				forgotPassView.postSubmit();
             }
           } catch (err) {
-			elements.loginBtn.value = "SUBMIT";
+			elements.forgotBtn.value = "SUBMIT";
             renderSnackbar("Something went wrong.");
           }
     }

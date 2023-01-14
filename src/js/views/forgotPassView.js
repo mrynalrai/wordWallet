@@ -1,7 +1,6 @@
 import { elements } from "./base";
 
 export const postSubmit = () => {
-    console.log(elements.forgotPassForm);
     elements.forgotPassForm.style.display = 'none';
     elements.forgotPassLoginRedirect.style.display = 'none';
     elements.forgotPassSubHeaderTitle1.innerHTML = 'Email Sent';
