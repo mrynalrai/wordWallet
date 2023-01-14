@@ -28,10 +28,14 @@
                     <form class="login__input--container">
                         <label for="username">Email address*</label>
                         <input type="text" id="username" autocomplete="off" placeholder="Enter email address" required>
-                        <span class="error-message"></span>
+                        <span id="usernameError" class="error-message">
+                            Email address must be valid
+                        </span>
                         <label for="password">Password*</label>
                         <input type="password" id="password" autocomplete="off" placeholder="Enter password" required>
-                        <span class="error-message"></span>
+                        <span id="passwordError" class="error-message">
+                            Password must be at least 8 characters
+                        </span>
                         <input id="loginBtn" class="login__input--container--submit" type="submit" value="LOGIN"></button>
                     </form>
                 </div>
@@ -54,12 +58,19 @@
                         <input type="text" id="name" autocomplete="off" placeholder="Enter name" required>
                         <label for="email">Email address*</label>
                         <input type="text" id="email" autocomplete="off" placeholder="Enter email address" required>
-                        <span class="error-message"></span>
+                        <span id="signupEmailError" class="error-message">
+                            Email address must be valid
+                        </span>
                         <label for="signupPassword">Password*</label>
                         <input type="password" id="signupPassword" autocomplete="off" placeholder="Enter password" required>
+                        <span id="signupPasswordError" class="error-message">
+                            Password must be at least 8 characters
+                        </span>
                         <label for="passwordCnfrm">Confirm Password*</label>
                         <input type="password" id="passwordCnfrm" autocomplete="off" placeholder="Confirm password" required>
-                        <span class="error-message"></span>
+                        <span id="signupConfirmPasswordError" class="error-message">
+                            Passwords do not match
+                        </span>
                         <input id="signupBtn" class="signup__input--container--submit" type="submit" value="SIGN UP"></button>
                     </form>
                 </div>
@@ -84,7 +95,9 @@
                     <form class="forgotPass__input--container">
                         <label for="forgotEmail">Email address*</label>
                         <input type="text" id="forgotEmail" autocomplete="off" placeholder="Enter email address" required>
-                        <span class="error-message"></span>
+                        <span id="forgotUsernameError" class="error-message">
+                            Email address must be valid
+                        </span>
                         <input id="forgotBtn" class="forgotPass__input--container--submit" type="submit" value="SUBMIT"></button>
                     </form>
                 </div>

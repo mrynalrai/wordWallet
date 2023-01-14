@@ -23,58 +23,72 @@ export default class Signup {
 					error++;
 				}
 			});
+			console.log(error);
 			if (error == 0) {
 				self.userSignup(document.querySelector(`#${self.fields[0]}`).value, 
 				document.querySelector(`#${self.fields[1]}`).value,
 				document.querySelector(`#${self.fields[2]}`).value,
 				document.querySelector(`#${self.fields[3]}`).value)
+			} else {
+				elements.signupBtn.value = "SIGN UP";
 			}
 		});
 	}
 
+	
 	validateFields(field) {
-		if (field.value.trim() === "") {
+		if (field.id == "signupPassword") {
+		  if (field.value.length < 8) {
 			this.setStatus(
-				field,
-				`${field.previousElementSibling.innerText} cannot be blank`,
-				"error"
+			  elements.signupPasswordError,
+			  "error"
 			);
 			return false;
-		} else {
-			if (field.type == "password") {
-				if (field.value.length < 8) {
-					this.setStatus(
-						field,
-						`${field.previousElementSibling.innerText} must be at least 8 characters`,
-						"error"
-					);
-					return false;
-				} else {
-					this.setStatus(field, null, "success");
-					return true;
-				}
+		  } else {
+			this.setStatus(elements.signupPasswordError, "success");
+			return true;
+		  }
+		} else if (field.id == "email") {
+		  const re = new RegExp(/(.+)@(.+){2,}\.(.+){2,}/);
+		  if (!re.test(field.value)) {
+			this.setStatus(
+			  elements.signupEmailError,
+			  "error"
+			);
+			return false;
+		  } else {
+			this.setStatus(elements.signupEmailError, "success");
+			return true;
+		  }
+		} else if (field.id == "passwordCnfrm") {
+			const pass = document.querySelector(`#${this.fields[2]}`).value;
+			const cPass = document.querySelector(`#${this.fields[3]}`).value;
+			if (pass !== cPass) {
+			  this.setStatus(
+				elements.signupConfirmPasswordError,
+				"error"
+			  );
+			  return false;
 			} else {
-				this.setStatus(field, null, "success");
-				return true;
+			  this.setStatus(elements.signupConfirmPasswordError, "success");
+			  return true;
 			}
+		} else {
+			return true;
 		}
-	}
-
-	setStatus(field, message, status) {
-		const errorMessage = field.parentElement.querySelector(".error-message");
-
+	  }
+	
+	  setStatus(field, status) {
 		if (status == "success") {
-			if (errorMessage) {
-				errorMessage.innerText = "";
-			}
-			field.classList.remove("input-error");
+		  if (field) {
+			field.style.display = "none";
+		  }
 		}
-
+	
 		if (status == "error") {
-			errorMessage.innerText = message;
-			field.classList.add("input-error");
+		  field.style.display = "inline";
 		}
-	}
+	  }
 
 	async userSignup(name, email, password, passwordConfirm) {
         try {

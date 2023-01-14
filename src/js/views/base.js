@@ -42,4 +42,10 @@ export const elements = {
     forgotPassLoginRedirectPostEmail: document.querySelector('#forgotPassLoginRedirectPostEmail'),
     resetPassLoginRedirectPostEmail: document.querySelector('#resetPassLoginRedirectPostEmail'),
     resetForm: document.querySelector(".resetPass__input--container"),
+    usernameError: document.querySelector('#usernameError'),
+    passwordError: document.querySelector('#passwordError'),
+    forgotUsernameError: document.querySelector('#forgotUsernameError'),
+    signupEmailError: document.querySelector('#signupEmailError'),
+    signupPasswordError: document.querySelector('#signupPasswordError'),
+    signupConfirmPasswordError: document.querySelector('#signupConfirmPasswordError'),
 };

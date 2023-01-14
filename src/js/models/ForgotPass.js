@@ -16,11 +16,45 @@ export default class ForgotPass {
 		this.form.addEventListener("submit", (e) => {
 			elements.forgotBtn.value = "SENDING...";
 			e.preventDefault();
-			// forgotPassView.postSubmit()
-			// var error = 0;
-			self.forgotPass(document.querySelector(`#${self.fields[0]}`).value)
+			if (self.validateFields(document.querySelector(`#${self.fields[0]}`)) == true) {
+				self.forgotPass(document.querySelector(`#${self.fields[0]}`).value);
+			} else {
+				elements.forgotBtn.value = "SUBMIT";
+			}
 		});
 	}
+	
+	validateFields(field) {
+		if (field.id == "forgotEmail") {
+		  const re = new RegExp(/(.+)@(.+){2,}\.(.+){2,}/);
+		  if (!re.test(field.value)) {
+			this.setStatus(
+			  elements.forgotUsernameError,
+			  "error"
+			);
+			return false;
+		  } else {
+			this.setStatus(elements.forgotUsernameError, "success");
+			return true;
+		  }
+		} else {
+		  this.setStatus(elements.forgotUsernameError, "success");
+		  return true;
+		}
+	  }
+	
+	  setStatus(field, status) {
+		if (status == "success") {
+		  if (field) {
+			field.style.display = "none";
+		  }
+		}
+	
+		if (status == "error") {
+		  console.log(field);
+		  field.style.display = "inline";
+		}
+	  }
 
 	async forgotPass(email) {
         try {

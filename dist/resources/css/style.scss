@@ -404,6 +404,13 @@ html {
     
                     &--container {
                         margin: 40px 15px;
+
+                        .error-message {
+                            font-size: 60%;
+                            display: none;
+                            margin: 0 20px;
+                            font-style: italic;
+                        }
     
                         label {
                             display: block;
@@ -414,6 +421,7 @@ html {
     
                         input {
                             display: block;
+                            margin-bottom: 0;
                             font-size: 60%;
                             width: 100%;
                             border-radius: 10px;
@@ -578,6 +586,12 @@ html {
                     &--container {
                         margin: 0px 15px;
     
+                        .error-message {
+                            font-size: 60%;
+                            display: none;
+                            margin: 0 20px;
+                            font-style: italic;
+                        }
                         label {
                             display: block;
                             text-transform: uppercase;
@@ -587,6 +601,7 @@ html {
     
                         input {
                             display: block;
+                            margin-bottom: 0;
                             font-size: 60%;
                             width: 100%;
                             border-radius: 10px;
@@ -612,6 +627,7 @@ html {
                             width: auto !important;
                             letter-spacing: 1px;
                             padding: 20px;
+                            margin-bottom: 20px !important;
                             color: white;
                             border: none;
                             margin: 20px auto 20px auto;
@@ -884,6 +900,13 @@ html {
                     &--container {
                         margin: 10px 15px;
     
+                        .error-message {
+                            font-size: 60%;
+                            display: none;
+                            margin: 0 20px;
+                            font-style: italic;
+                        }
+    
                         label {
                             display: block;
                             text-transform: uppercase;
@@ -898,7 +921,8 @@ html {
                             border-radius: 10px;
                             background: #272b2f;
                             background: linear-gradient(145deg, #23272a, #2a2e32);
-                            box-shadow: 5px 5px 10px #15181a,
+                            box-shadow: 5px 5px 10px #15181a;
+                            margin-bottom: 0;
                         }
     
                         input:focus {
