@@ -78,7 +78,7 @@ export default class List{
         // return word;
 
         try {
-            const lWord = word.word.toLowerCase();
+            const lWord = word.word.toLowerCase().trim();
             const res = await axios({
               method: 'POST',
               url: 'https://api.mywordwallet.com/.netlify/functions/api/v1/words',
