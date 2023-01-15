@@ -78,12 +78,13 @@ export default class List{
         // return word;
 
         try {
+            const lWord = word.word.toLowerCase();
             const res = await axios({
               method: 'POST',
               url: 'https://api.mywordwallet.com/.netlify/functions/api/v1/words',
               // url: 'http://127.0.0.1:9000/.netlify/functions/api/v1/words',
               data: {
-                word: word.word,
+                word: lWord,
                 meaning: word.meaning,
                 sample: word.sample,
                 details: word.details
