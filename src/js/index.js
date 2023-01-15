@@ -176,9 +176,9 @@ export const renderWordList = async () => {
     if (loginData == 401) {
         showScreen("loginScreen");
     } else {
+        showScreen("dashboard");
         listView.renderUserDetails(loginData[0], loginData[1]);
         list = await state.list.getWordList();
-        showScreen("dashboard");
     }
     listView.clearSpinner();
     // Render the existing words
