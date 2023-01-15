@@ -100,7 +100,11 @@ export default class List{
             //   }, 1500);
             }
           } catch (err) {
-            renderSnackbar("Request failed. " + err.response.data.message.name);
+            if (err.response && err.response.data && err.response.data.message && err.response.data.message.code && err.response.data.message.code == 11000) {
+              renderSnackbar("Request failed. Word already added.");
+            } else {
+              renderSnackbar("Request failed.");
+            }
           }
     }
 
